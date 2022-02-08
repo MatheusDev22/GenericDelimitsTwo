@@ -17,18 +17,18 @@ public class Program {
 		List<Product> list = new ArrayList<>();
 		Locale.setDefault(Locale.US);
 		
-		String path = "C: \\temp\\inProduct.txt";
+		String path = "c:\\temp\\inProduct.txt";
 		
 		try (BufferedReader br = new BufferedReader(new FileReader(path)) ){
 			String line = br.readLine();
 			while(line != null) {
-				String fields[] = line.split(", ");
+				String fields[] = line.split(",");
 				list.add(new Product(fields[0], Double.parseDouble(fields[1])) );
 				line = br.readLine();
 			}
 			
 			Product x = CalculationService.max(list);
-			System.out.println("Max: ");
+			System.out.println("Most expensive: ");
 			System.out.println(x);
 		}catch (IOException e) {
 			System.out.println("Error: " + e.getMessage() );
